@@ -1,3 +1,27 @@
 <div id='container'>
-  <!-- Your html here -->
+  <nav class="navigation">
+    <ul>
+        <li>
+            <a class="clicked" href="#/links">Links</a>
+        </li>
+        <li>
+            <a href="#/shorten">Shorten</a>
+        </li>
+    </ul>
+  </nav>
+  <!-- <input type="text" ng-model="linkUrl" placeholder="enter here link to shorten starting from http://www"> -->
+  <div class="links">
+    <div class="link" ng-repeat="link in data.links">
+      <img src="assets/redirect_icon.png">
+      <div class="info">
+        <div class="visits">
+          <span class="count">{{link.visits}}</span>
+          Visits
+        </div>
+        <div class="title">{{link.title}}</div>
+        <div class="url">{{link.url}}</div>
+        <a href=""></a>
+    </div>
+    </div>
+  </div>
 </div>
