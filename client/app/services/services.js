@@ -3,21 +3,25 @@ angular.module('shortly.services', [])
 .factory('Links', function ($http) {
 
   var getAll = function (links) {
-    $http({
+    return $http({
       method: 'GET',
       url: '/api/links'
     })
-    .success(function (response) {
-      return response.links;
+    .then(function (response) {
+      return response.data;
     })
-    .error(function () {
-      console.error('getAll links has an error');
+    .catch(function (err) {
+      console.error('getAll links has an error ', err);
       return null;
     });
   };
 
-  var addOne = function () {
-
+  var addOne = function (link) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: link
+    });
   };
 
   return {
